@@ -115,7 +115,7 @@ class paypage
         else {
             Log::channel('Clickpay')->info(json_encode($response));
             //print_r(json_encode($response));
-            return json_encode($result);
+            return json_encode($response);
         }
     }
 

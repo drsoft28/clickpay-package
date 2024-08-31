@@ -384,7 +384,7 @@ class ClickpayRequestHolder extends ClickpayHolder
             $this->tokenise,
             $this->user_defined
         );
-
+        if($this->card_details)     $this->pt_merges($all,$this->card_details);
         return $all;
     }
 
@@ -469,7 +469,19 @@ class ClickpayRequestHolder extends ClickpayHolder
 
         return $this;
     }
+    public function set05CardDetails($pan,$month,$year,$cvv)
+    {
+        $this->card_details = [
+            'card_details' => [
+                "pan"=> $pan,
+                "cvv"=> $cvv,
+                "expiry_month"=> $month,
+                "expiry_year"=> $year 
+            ]
+        ];
 
+        return $this;
+    }
     public function set07URLs($return_url, $callback_url)
     {
         $this->urls = [

@@ -61,7 +61,11 @@ class paypage
         $this->clickpay_core->set06HideShipping($on);
         return $this;
     }
-
+    public function sendCardDetails($pan,$month,$year,$cvv)
+    {
+        $this->clickpay_core->set05CardDetails($pan,$month,$year,$cvv);
+        return $this;
+    }
     public function sendURLs($return_url, $callback_url)
     {
         $this->clickpay_core->set07URLs($return_url, $callback_url);
